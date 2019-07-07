@@ -1,12 +1,47 @@
 /** @module nestext */
 
+import Handlebars from "handlebars"
+import mapObject from "map-obj"
+import {isString, isFunction, isArrayLike, sample} from "lodash"
+import handlebarsHelperPlural from "handlebars-helper-plural"
+
+const handlebars = Handlebars.create()
+
+handlebars.registerHelper("count", handlebarsHelperPlural)
+
+const compileTemplate = templateString => {
+  return handlebars.compile(templateString, {
+    noEscape: true,
+  })
+}
+
+const processFragment = fragment => {
+  if (fragment |> isString) {
+    const template = compileTemplate(fragment)
+    return context => template(context)
+  }
+  if (fragment |> isFunction) {
+    return fragment
+  }
+  if (fragment |> isArrayLike) {
+    return () => sample(fragment.map(processFragment))
+  }
+  return () => fragment
+}
+
 /**
- * Returns the number of seconds passed since Unix epoch (01 January 1970)
- * @example
- * import nestext from "nestext"
- * const result = nestext()
- * result === 1549410770
+ * Returns a string
  * @function
- * @returns {number} Seconds since epoch
+ * @param {string|Object<string, string|function>} textFragments
+ * @param {Object<string, *>} context
+ * @returns {string}
  */
-export default () => Math.floor(Date.now() / 1000)
+export default (textFragments, context) => {
+  if (textFragments |> isString) {
+    return compileTemplate(textFragments)(context)
+  }
+  const compiledTextFragments = mapObject(textFragments, (key, value) => {
+    return [key, value |> processFragment]
+  })
+  return compiledTextFragments.text()
+}

@@ -7,7 +7,30 @@ const indexModule = (process.env.MAIN ? path.resolve(process.env.MAIN) : path.jo
    */
 const {default: nestext} = indexModule
 
-it("should run", () => {
-  const result = nestext()
-  expect(result).toBeGreaterThan(1549410770)
+it("Basic", () => {
+  const result = nestext({
+    text: "hello",
+  })
+  expect(result).toBe("hello")
+})
+
+it("With context", () => {
+  const context = {
+    bananas: 4,
+  }
+  const result = nestext({
+    text: "There are {{count bananas 'banana'}}.",
+  }, context)
+  expect(result).toBe("There are 4 bananas.")
+})
+
+it("Nested", () => {
+  const context = {
+    bananas: 4,
+  }
+  const result = nestext({
+    text: "There are {{bananas}} bananas.",
+    name: "",
+  }, context)
+  expect(result).toBe("There are 4 bananas.")
 })
