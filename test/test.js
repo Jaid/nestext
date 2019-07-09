@@ -1,6 +1,8 @@
 import path from "path"
 
+import Handlebars from "Handlebars"
 import {sample} from "lodash"
+import handlebarsHelperPlural from "handlebars-helper-plural"
 
 const indexModule = (process.env.MAIN ? path.resolve(process.env.MAIN) : path.join(__dirname, "..", "src")) |> require
 
@@ -8,6 +10,9 @@ const indexModule = (process.env.MAIN ? path.resolve(process.env.MAIN) : path.jo
    * @type { import("../src") }
    */
 const {default: nestext} = indexModule
+
+const handlebars = Handlebars.create()
+handlebars.registerHelper("count", handlebarsHelperPlural)
 
 it("Basic", () => {
   const result = nestext("hello")
@@ -35,4 +40,14 @@ it("Nested", () => {
     name: ["John", "Lisa"],
   }, context)
   expect(result).toBe("There are 4 bananas")
+})
+
+it("Making sure I understand Handlebars correctly", () => {
+  expect(handlebars.compile("a")()).toBe("a")
+  expect(handlebars.compile("{{a}}")({
+    a: () => "x",
+  })).toBe("x")
+  expect(["a", "b"].includes(handlebars.compile("{{a}}")({
+    a: () => sample(["a", "b"]),
+  }))).toBeTruthy()
 })
