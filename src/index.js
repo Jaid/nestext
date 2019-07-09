@@ -2,7 +2,7 @@
 
 import Handlebars from "handlebars"
 import mapObject from "map-obj"
-import {isString, isFunction, isArrayLike, sample} from "lodash"
+import {isString, isFunction, isArray, sample, omit} from "lodash"
 import handlebarsHelperPlural from "handlebars-helper-plural"
 
 const handlebars = Handlebars.create()
@@ -17,14 +17,13 @@ const compileTemplate = templateString => {
 
 const processFragment = fragment => {
   if (fragment |> isString) {
-    const template = compileTemplate(fragment)
-    return context => template(context)
+    return compileTemplate(fragment)
   }
   if (fragment |> isFunction) {
     return fragment
   }
-  if (fragment |> isArrayLike) {
-    return () => sample(fragment.map(processFragment))
+  if (fragment |> isArray) {
+    return () => fragment.map(x => processFragment(x))[0](context)
   }
   return () => fragment
 }
@@ -43,5 +42,8 @@ export default (textFragments, context) => {
   const compiledTextFragments = mapObject(textFragments, (key, value) => {
     return [key, value |> processFragment]
   })
-  return compiledTextFragments.text()
+  return compiledTextFragments.text({
+    ...context,
+    ...omit(compiledTextFragments, "text"),
+  })
 }
