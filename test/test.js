@@ -39,7 +39,13 @@ it("Nested", () => {
     greeting: ["Hey {{name}}, my friend", "Hello, dear {{name}}"],
     name: ["John", "Lisa"],
   }, context)
-  expect(result).toBe("There are 4 bananas")
+  const possibleResults = [
+    "Hey Lisa, my friend, there are 4 bananas!",
+    "Hey John, my friend, there are 4 bananas!",
+    "Hello, dear Lisa, there are 4 bananas!",
+    "Hello, dear John, there are 4 bananas!",
+  ]
+  expect(possibleResults.includes(result)).toBeTruthy()
 })
 
 it("Making sure I understand Handlebars correctly", () => {

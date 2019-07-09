@@ -15,19 +15,6 @@ const compileTemplate = templateString => {
   })
 }
 
-const processFragment = fragment => {
-  if (fragment |> isString) {
-    return compileTemplate(fragment)
-  }
-  if (fragment |> isFunction) {
-    return fragment
-  }
-  if (fragment |> isArray) {
-    return () => fragment.map(x => processFragment(x))[0](context)
-  }
-  return () => fragment
-}
-
 /**
  * Returns a string
  * @function
@@ -39,11 +26,34 @@ export default (textFragments, context) => {
   if (textFragments |> isString) {
     return compileTemplate(textFragments)(context)
   }
-  const compiledTextFragments = mapObject(textFragments, (key, value) => {
-    return [key, value |> processFragment]
-  })
-  return compiledTextFragments.text({
-    ...context,
-    ...omit(compiledTextFragments, "text"),
-  })
+
+  const compiledTextFragments = {}
+  const compiledContext = {}
+
+  const processFragment = fragment => {
+    if (fragment |> isString) {
+      return compileTemplate(fragment)
+    }
+    if (fragment |> isFunction) {
+      return fragment
+    }
+    if (fragment |> isArray) {
+      return () => {
+        const chosenEntry = sample(fragment)
+        return processFragment(chosenEntry)(compiledContext)
+      }
+    }
+    return fragment
+  }
+
+  for (const [key, value] of Object.entries(textFragments)) {
+    if (key === "text") {
+      continue
+    }
+    compiledTextFragments[key] = value |> processFragment
+  }
+
+  Object.assign(compiledContext, context, compiledTextFragments)
+  const compiledText = processFragment(textFragments.text)(compiledContext)
+  return compiledText
 }
