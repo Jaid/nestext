@@ -1,8 +1,7 @@
 /** @module nestext */
 
 import Handlebars from "handlebars"
-import mapObject from "map-obj"
-import {isString, isFunction, isArray, sample, omit} from "lodash"
+import {isString, isFunction, isArray, sample} from "lodash"
 import handlebarsHelperPlural from "handlebars-helper-plural"
 
 const handlebars = Handlebars.create()
