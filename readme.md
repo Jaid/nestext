@@ -4,31 +4,16 @@
 Advanced recursive Handlebars template resolving.
 
 ## Installation
-<a href='https://npmjs.com/package/nestext'><img alt='npm logo' src='https://raw.githubusercontent.com/npm/logos/master/npm%20logo/npm-logo-red.png' height=16/></a>
+<a href='https://npmjs.com/package/nestext'><img alt='npm logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/npm.png'/></a>
 ```bash
-npm install --save nestext@^
+npm install --save nestext@^1.0.1
 ```
-<a href='https://yarnpkg.com/package/nestext'><img alt='Yarn logo' src='https://raw.githubusercontent.com/yarnpkg/assets/master/yarn-kitten-full.png' height=24/></a>
+<a href='https://yarnpkg.com/package/nestext'><img alt='Yarn logo' src='https://github.com/Jaid/action-readme/raw/master/images/base-assets/yarn.png'/></a>
 ```bash
-yarn add nestext@^
+yarn add nestext@^1.0.1
 ```
 
 
-## Try it out
-Open a browser's JavaScript console and execute:
-
-```javascript
-const scriptElement = document.createElement("script");
-scriptElement.setAttribute("type","text/javascript");
-scriptElement.setAttribute("src","https://unpkg.com/nestext@1.0.1");
-document.querySelector("head").appendChild(scriptElement);
-```
-
-The module is now loaded in a variable.
-
-```javascript
-typeof nestext.default
-```
 
 ## Documentation
 Returns a string
