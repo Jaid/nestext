@@ -34,5 +34,6 @@
     "prepareActionJest": "npm run build:prod"
   },
   "name": "nestext",
-  "description": "Advanced recursive Handlebars template resolving."
+  "description": "Advanced recursive Handlebars template resolving.",
+  "funding": "https://github.com/sponsors/jaid"
 }
