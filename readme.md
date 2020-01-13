@@ -1,9 +1,9 @@
 # nestext
 
 
-<a href="https://raw.githubusercontent.com/Jaid/nestext/master/license.txt"><img src="https://img.shields.io/github/license/Jaid/nestext?style=flat-square" alt="License"/></a>  
-<a href="https://actions-badge.atrox.dev/Jaid/nestext/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2FJaid%2Fnestext%2Fbadge" alt="Build status"/></a> <a href="https://github.com/Jaid/nestext/commits"><img src="https://img.shields.io/github/commits-since/Jaid/nestext/v1.0.1?style=flat-square&logo=github" alt="Commits since v1.0.1"/></a> <a href="https://github.com/Jaid/nestext/commits"><img src="https://img.shields.io/github/last-commit/Jaid/nestext?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/Jaid/nestext/issues"><img src="https://img.shields.io/github/issues/Jaid/nestext?style=flat-square&logo=github" alt="Issues"/></a>  
-<a href="https://npmjs.com/package/nestext"><img src="https://img.shields.io/npm/v/nestext?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/Jaid/nestext/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/nestext?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/nestext"><img src="https://img.shields.io/npm/dm/nestext?style=flat-square&logo=npm" alt="Downloads"/></a>
+<a href="https://raw.githubusercontent.com/jaid/nestext/master/license.txt"><img src="https://img.shields.io/github/license/jaid/nestext?style=flat-square" alt="License"/></a> <a href="https://github.com/sponsors/jaid"><img src="https://img.shields.io/badge/<3-Sponsor-FF45F1?style=flat-square" alt="Sponsor nestext"/></a>
+<a href="https://actions-badge.atrox.dev/jaid/nestext/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2Fjaid%2Fnestext%2Fbadge" alt="Build status"/></a> <a href="https://github.com/jaid/nestext/commits"><img src="https://img.shields.io/github/commits-since/jaid/nestext/v1.0.1?style=flat-square&logo=github" alt="Commits since v1.0.1"/></a> <a href="https://github.com/jaid/nestext/commits"><img src="https://img.shields.io/github/last-commit/jaid/nestext?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/jaid/nestext/issues"><img src="https://img.shields.io/github/issues/jaid/nestext?style=flat-square&logo=github" alt="Issues"/></a>  
+<a href="https://npmjs.com/package/nestext"><img src="https://img.shields.io/npm/v/nestext?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/jaid/nestext/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/nestext?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/nestext"><img src="https://img.shields.io/npm/dm/nestext?style=flat-square&logo=npm" alt="Downloads"/></a>
 
 **Advanced recursive Handlebars template resolving.**
 
@@ -37,14 +37,13 @@ yarn add nestext@^1.0.1
 
 
 
-
 ## Development
 
 
 
 Setting up:
 ```bash
-git clone git@github.com:Jaid/nestext.git
+git clone git@github.com:jaid/nestext.git
 cd nestext
 npm install
 ```
