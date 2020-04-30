@@ -40,5 +40,15 @@
     "url": "https://github.com/jaid/nestext"
   },
   "homepage": "https://github.com/Jaid/nestext",
-  "keywords": []
+  "keywords": [
+    "format",
+    "handlebars",
+    "lib",
+    "library",
+    "nested",
+    "string",
+    "template",
+    "util",
+    "utility"
+  ]
 }
