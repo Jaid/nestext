@@ -50,5 +50,6 @@
     "template",
     "util",
     "utility"
-  ]
+  ],
+  "type": "module"
 }
